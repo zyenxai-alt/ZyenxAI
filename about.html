@@ -216,7 +216,6 @@ footer p span{color:var(--green)}
 <script>
 const obs=new IntersectionObserver((e)=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-</script>
 <script src="https://zyenx-ai-production.up.railway.app/widget.js"></script>
 </body>
 </html>
