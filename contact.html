@@ -228,62 +228,68 @@ footer p span{color:var(--green)}
 </footer>
 
 <script>
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
 
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+  const form = document.getElementById('contactForm');
+  if (!form) return; // prevents breaking other pages
 
-  // YOUR LIVE RAILWAY AGENCY URL
-  const AGENCY_URL = 'https://zyenx-agency-production.up.railway.app';
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-  const orderData = {
-    clientName:   document.getElementById('name').value,
-    clientEmail:  document.getElementById('email').value,
-    clientPhone:  document.getElementById('phone').value,
-    service:      document.getElementById('service').value,
-    requirements: document.getElementById('requirements').value,
-    amountPaid:   0,
-    paymentStatus: 'pending'
-  };
+    const btn = document.getElementById('submitBtn');
+    const successBox = document.getElementById('successMsg');
 
-  try {
-    const response = await fetch(`${AGENCY_URL}/api/orders/new`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(orderData)
-    });
+    btn.disabled = true;
+    btn.innerHTML = 'Sending...';
 
-    const data = await response.json();
+    const AGENCY_URL = 'https://zyenx-agency-production.up.railway.app';
 
-    if (data.success) {
-      btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-      document.getElementById('successMsg').innerHTML =
-        `✅ Message received! Your Order ID is <strong>${data.orderId}</strong>.
-         We will contact you within 1-2 hours. Save this ID for tracking.`;
-      document.getElementById('successMsg').style.display = 'block';
-      this.reset();
-    } else {
-      throw new Error('Server error');
+    const orderData = {
+      clientName: document.getElementById('name')?.value || '',
+      clientEmail: document.getElementById('email')?.value || '',
+      clientPhone: document.getElementById('phone')?.value || '',
+      service: document.getElementById('service')?.value || '',
+      requirements: document.getElementById('requirements')?.value || '',
+      amountPaid: 0,
+      paymentStatus: 'pending'
+    };
+
+    try {
+      const response = await fetch(`${AGENCY_URL}/api/orders/new`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(orderData)
+      });
+
+      const data = await response.json();
+
+      if (data && data.success) {
+        btn.innerHTML = 'Sent!';
+        successBox.innerHTML = `✅ Message received! Order ID: <strong>${data.orderId}</strong>`;
+        successBox.style.display = 'block';
+        form.reset();
+      } else {
+        throw new Error();
+      }
+
+    } catch (err) {
+      // fallback (no crash)
+      btn.innerHTML = 'Sent!';
+      successBox.innerHTML = '✅ Message received! We will contact you soon.';
+      successBox.style.display = 'block';
+      form.reset();
     }
 
-  } catch(err) {
-    // Fallback if server unreachable
-    btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-    document.getElementById('successMsg').innerHTML =
-      '✅ Message received! We will contact you within 1-2 hours.';
-    document.getElementById('successMsg').style.display = 'block';
-    this.reset();
-  }
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = 'Send Message';
+    }, 4000);
+  });
 
-  setTimeout(() => {
-    btn.disabled = false;
-    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-  }, 5000);
 });
 </script>
 
+<!-- KEEP YOUR WIDGET -->
 <script defer src="https://zyenx-ai-production.up.railway.app/widget.js"></script>
 </body>
 </html>
