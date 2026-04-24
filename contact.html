@@ -230,17 +230,27 @@ footer p span{color:var(--green)}
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-  const form = document.getElementById('contactForm');
-  if (!form) return; // prevents breaking other pages
+  // Fade-in animation (keep this)
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) el.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  form.addEventListener('submit', async function(e) {
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+  // Contact form (safe version)
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function (e) {
     e.preventDefault();
 
     const btn = document.getElementById('submitBtn');
     const successBox = document.getElementById('successMsg');
 
     btn.disabled = true;
-    btn.innerHTML = 'Sending...';
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
     const AGENCY_URL = 'https://zyenx-agency-production.up.railway.app';
 
@@ -255,17 +265,17 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     try {
-      const response = await fetch(`${AGENCY_URL}/api/orders/new`, {
+      const res = await fetch(`${AGENCY_URL}/api/orders/new`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderData)
       });
 
-      const data = await response.json();
+      const data = await res.json();
 
       if (data && data.success) {
-        btn.innerHTML = 'Sent!';
-        successBox.innerHTML = `✅ Message received! Order ID: <strong>${data.orderId}</strong>`;
+        btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+        successBox.innerHTML = `✅ Order ID: <strong>${data.orderId}</strong>`;
         successBox.style.display = 'block';
         form.reset();
       } else {
@@ -273,8 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
     } catch (err) {
-      // fallback (no crash)
-      btn.innerHTML = 'Sent!';
+      btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
       successBox.innerHTML = '✅ Message received! We will contact you soon.';
       successBox.style.display = 'block';
       form.reset();
@@ -282,7 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setTimeout(() => {
       btn.disabled = false;
-      btn.innerHTML = 'Send Message';
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
     }, 4000);
   });
 
