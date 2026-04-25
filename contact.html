@@ -205,6 +205,18 @@ footer p span{color:var(--green)}
           <textarea id="requirements" placeholder="Describe what you need. The more detail, the better our agents can build for you..." required></textarea>
         </div>
 
+        <div class="form-group">
+          <label>Reference Website (Optional)</label>
+          <input type="url" id="referenceUrl" placeholder="https://example.com — a site you like the style of"/>
+        </div>
+
+        <div class="form-group">
+          <label>Reference Images (Optional)</label>
+          <input type="file" id="referenceImages" accept="image/*" multiple style="padding:10px 16px;cursor:pointer"/>
+          <div style="font-size:12px;color:var(--muted);margin-top:6px">Upload screenshots, designs, or mockups. Max 5MB each. Our agents will analyze them.</div>
+          <div id="imgPreview" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"></div>
+        </div>
+
         <button type="submit" class="submit-btn" id="submitBtn">
           <i class="fas fa-paper-plane"></i> Send Message
         </button>
@@ -239,6 +251,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
+  // Image preview for reference upload
+  const imgInput = document.getElementById('referenceImages');
+  if (imgInput) {
+    imgInput.addEventListener('change', function() {
+      const preview = document.getElementById('imgPreview');
+      preview.innerHTML = '';
+      Array.from(this.files).slice(0, 5).forEach(file => {
+        const url = URL.createObjectURL(file);
+        const img = document.createElement('img');
+        img.src = url;
+        img.style.cssText = 'height:70px;width:70px;object-fit:cover;border-radius:8px;border:1px solid rgba(0,255,136,0.3)';
+        preview.appendChild(img);
+      });
+    });
+  }
+
   // Contact form (safe version)
   const form = document.getElementById('contactForm');
   if (!form) return;
@@ -258,6 +286,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const rawService = document.getElementById('service')?.value || '';
     const cleanService = rawService.replace(/\s*[-]\s*(\$|Help).*$/, '').trim();
 
+    // Convert uploaded images to base64
+    const imageFiles = document.getElementById('referenceImages')?.files || [];
+    const referenceImages = [];
+    for (const file of imageFiles) {
+      if (file.size > 5 * 1024 * 1024) continue;
+      const base64 = await new Promise(resolve => {
+        const reader = new FileReader();
+        reader.onload = e => resolve(e.target.result.split(',')[1]);
+        reader.readAsDataURL(file);
+      });
+      referenceImages.push({ base64, mediaType: file.type || 'image/jpeg' });
+    }
+
     const orderData = {
       clientName: document.getElementById('name')?.value || '',
       clientEmail: document.getElementById('email')?.value || '',
@@ -265,6 +306,8 @@ document.addEventListener('DOMContentLoaded', function () {
       service: cleanService,
       requirements: document.getElementById('requirements')?.value || '',
       budget: document.getElementById('budget')?.value || '',
+      referenceUrl: document.getElementById('referenceUrl')?.value || '',
+      referenceImages,
       amountPaid: 0,
       paymentStatus: 'pending'
     };
