@@ -254,12 +254,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const AGENCY_URL = 'https://zyenx-agency-production.up.railway.app';
 
+    // Strip price text from service name e.g. "Business Website — $599" → "Business Website"
+    const rawService = document.getElementById('service')?.value || '';
+    const cleanService = rawService.split('—')[0].split('$')[0].trim();
+
     const orderData = {
       clientName: document.getElementById('name')?.value || '',
       clientEmail: document.getElementById('email')?.value || '',
       clientPhone: document.getElementById('phone')?.value || '',
-      service: document.getElementById('service')?.value || '',
+      service: cleanService,
       requirements: document.getElementById('requirements')?.value || '',
+      budget: document.getElementById('budget')?.value || '',
       amountPaid: 0,
       paymentStatus: 'pending'
     };
@@ -275,18 +280,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (data && data.success) {
         btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-        successBox.innerHTML = `✅ Order ID: <strong>${data.orderId}</strong>`;
+        successBox.innerHTML = `✅ Order received! Your Order ID is <strong>${data.orderId}</strong>. Our AI agents are now starting your project. We will contact you within 1-2 hours. 🚀`;
         successBox.style.display = 'block';
         form.reset();
       } else {
-        throw new Error();
+        throw new Error(data?.message || 'Failed');
       }
 
     } catch (err) {
-      btn.innerHTML = '<i class="fas fa-check"></i> Sent!';
-      successBox.innerHTML = '✅ Message received! We will contact you soon.';
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      btn.disabled = false;
+      successBox.innerHTML = '❌ Something went wrong. Please WhatsApp us at +923417842698 or email zyenxai@gmail.com';
       successBox.style.display = 'block';
-      form.reset();
+      successBox.style.color = '#ef4444';
+      successBox.style.borderColor = 'rgba(239,68,68,0.3)';
+      successBox.style.background = 'rgba(239,68,68,0.05)';
     }
 
     setTimeout(() => {
