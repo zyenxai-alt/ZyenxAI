@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Contact Us — Zyenx AI Agency</title>
+<title>Contact Us: Zyenx AI Agency</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
@@ -183,14 +183,14 @@ footer p span{color:var(--green)}
             <label>Service Needed *</label>
             <select id="service" required>
               <option value="" disabled selected>Select a service</option>
-              <option>Basic Website — $299</option>
-              <option>Business Website — $599</option>
-              <option>Ecommerce Store — $999</option>
-              <option>Android App — $1,199</option>
-              <option>AI Chatbot Basic — $149 + $49/mo</option>
-              <option>AI Chatbot Business — $299 + $79/mo</option>
-              <option>Full Stack System — $1,499</option>
-              <option>Not Sure — Help Me Choose</option>
+              <option>Basic Website - $299</option>
+              <option>Business Website - $599</option>
+              <option>Ecommerce Store - $999</option>
+              <option>Android App - $1,199</option>
+              <option>AI Chatbot Basic - $149 + $49/mo</option>
+              <option>AI Chatbot Business - $299 + $79/mo</option>
+              <option>Full Stack System - $1,499</option>
+              <option>Not Sure - Help Me Choose</option>
             </select>
           </div>
         </div>
@@ -254,9 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const AGENCY_URL = 'https://zyenx-agency-production.up.railway.app';
 
-    // Strip price text from service name e.g. "Business Website — $599" → "Business Website"
+    // Strip price text from service name e.g. "Business Website - $599" → "Business Website"
     const rawService = document.getElementById('service')?.value || '';
-    const cleanService = rawService.split('—')[0].split('$')[0].trim();
+    const cleanService = rawService.replace(/\s*[-]\s*(\$|Help).*$/, '').trim();
 
     const orderData = {
       clientName: document.getElementById('name')?.value || '',
