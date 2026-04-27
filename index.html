@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Zyenx AI: The First Fully AI-Powered Development Agency</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<title>Zyenx AI: AI Agent Creation Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -20,7 +20,7 @@
   --text:#f0f0ff;
   --muted:#6b7280;
   --font-head:'Outfit',sans-serif;
-  --font-body:'DM Sans',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{font-family:var(--font-body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
@@ -56,7 +56,7 @@ nav.scrolled{background:rgba(4,4,15,0.95);backdrop-filter:blur(20px);border-bott
 .hero h1{font-family:var(--font-head);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;margin-bottom:20px;letter-spacing:-1px}
 .hero h1 .green{color:var(--green)}
 .hero h1 .outline{-webkit-text-stroke:1px rgba(255,255,255,0.3);color:transparent}
-.hero-sub{font-size:1.15rem;color:var(--muted);max-width:600px;margin:0 auto 36px;line-height:1.7}
+.hero-sub{font-size:1.15rem;color:var(--muted);max-width:620px;margin:0 auto 36px;line-height:1.7}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
 .btn-main{background:var(--green);color:#04040f;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;transition:all .3s}
 .btn-main:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,255,136,0.25)}
@@ -72,7 +72,6 @@ nav.scrolled{background:rgba(4,4,15,0.95);backdrop-filter:blur(20px);border-bott
 .float-card{position:absolute;background:rgba(255,255,255,0.04);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;animation:floatAnim 5s ease-in-out infinite}
 .float-card:nth-child(1){top:20%;left:3%;animation-delay:0s}
 .float-card:nth-child(2){top:65%;right:3%;animation-delay:1.5s}
-.float-card:nth-child(3){bottom:18%;left:8%;animation-delay:3s;display:none}
 @keyframes floatAnim{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .float-icon{width:32px;height:32px;border-radius:8px;background:rgba(0,255,136,0.1);display:flex;align-items:center;justify-content:center;color:var(--green);font-size:14px}
 
@@ -99,12 +98,13 @@ section{padding:100px 6%}
 .svc-price span{font-size:13px;color:var(--muted);font-family:var(--font-body);font-weight:400}
 
 /* HOW IT WORKS */
-.how-it-works .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;position:relative}
-.how-it-works .steps::before{content:'';position:absolute;top:32px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--green),var(--green),transparent);opacity:0.3}
-.step{text-align:center;padding:32px 20px}
+.how-it-works .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative}
+.step{text-align:center;padding:32px 20px;background:var(--card);border:1px solid var(--border);border-radius:20px;transition:all .3s}
+.step:hover{border-color:rgba(0,255,136,0.2);transform:translateY(-3px)}
 .step-num{width:64px;height:64px;background:rgba(0,255,136,0.08);border:1px solid rgba(0,255,136,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:1.3rem;color:var(--green);margin:0 auto 20px}
 .step-title{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:10px}
 .step-desc{color:var(--muted);font-size:14px;line-height:1.6}
+.step-agent{font-size:12px;color:var(--green);margin-top:10px;opacity:0.7}
 
 /* AGENTS */
 .agents{background:var(--surface)}
@@ -166,7 +166,6 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
   .hero-stats{gap:24px}
   .services-grid,.pricing-grid{grid-template-columns:1fr}
   .how-it-works .steps{grid-template-columns:repeat(2,1fr)}
-  .how-it-works .steps::before{display:none}
   .agents-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;gap:16px;text-align:center}
@@ -198,7 +197,7 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
     <li><a href="about.html">About</a></li>
     <li><a href="contact.html">Contact</a></li>
   </ul>
-  <a href="contact.html" class="nav-btn">Start Project</a>
+  <a href="contact.html" class="nav-btn">Get Your AI Agent</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -212,33 +211,33 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
   <div class="float-cards">
     <div class="float-card">
       <div class="float-icon"><i class="fas fa-robot"></i></div>
-      <div><div style="font-size:11px;color:var(--muted)">Status</div>7 Agents Online</div>
+      <div><div style="font-size:11px;color:var(--muted)">Status</div>8 Agents Online</div>
     </div>
     <div class="float-card">
       <div class="float-icon"><i class="fas fa-check"></i></div>
-      <div><div style="font-size:11px;color:var(--muted)">Last Project</div>Delivered in 2hrs</div>
+      <div><div style="font-size:11px;color:var(--muted)">Last Agent Built</div>Delivered in 4hrs</div>
     </div>
   </div>
   <div class="hero-content">
     <div class="hero-badge">
       <div class="badge-dot"></div>
-      World's First Fully AI-Powered Dev Agency
+      We Build AI Agents That Run Your Business
     </div>
     <h1>
-      From Idea to Launch<br/>
-      <span class="green">AI Agents That Build</span><br/>
-      <span class="outline">For You.</span>
+      Your Business Needs<br/>
+      <span class="green">An AI Agent</span><br/>
+      <span class="outline">That Never Sleeps.</span>
     </h1>
-    <p class="hero-sub">7 specialized AI agents work 24/7 to build your websites, apps, chatbots and full-stack systems. Faster, smarter, and at a fraction of the cost.</p>
+    <p class="hero-sub">We build custom AI agents that answer customers, capture leads, book appointments, and handle WhatsApp — 24/7, automatically, while you focus on what matters.</p>
     <div class="hero-btns">
-      <a href="contact.html" class="btn-main"><i class="fas fa-rocket"></i> Start Your Project</a>
-      <a href="#services" class="btn-outline"><i class="fas fa-eye"></i> See Our Services</a>
+      <a href="contact.html" class="btn-main"><i class="fas fa-rocket"></i> Get Your AI Agent</a>
+      <a href="#services" class="btn-outline"><i class="fas fa-eye"></i> See What We Build</a>
     </div>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">7</div><div class="stat-lbl">AI Agents Working</div></div>
+      <div class="stat"><div class="stat-num">8</div><div class="stat-lbl">AI Agents Working</div></div>
       <div class="stat"><div class="stat-num">24/7</div><div class="stat-lbl">Always Available</div></div>
-      <div class="stat"><div class="stat-num">$299</div><div class="stat-lbl">Starting Price</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Satisfaction Guaranteed</div></div>
+      <div class="stat"><div class="stat-num">$197</div><div class="stat-lbl">Starting Price</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Custom Built</div></div>
     </div>
   </div>
 </section>
@@ -247,45 +246,45 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
 <section class="services" id="services">
   <div class="section-head center fade-in">
     <div class="section-tag">What We Build</div>
-    <h2 class="section-title">Services & Pricing</h2>
-    <p class="section-sub">Every project is built by specialized AI agents and reviewed for quality before delivery.</p>
+    <h2 class="section-title">AI Agent Packages</h2>
+    <p class="section-sub">Every agent is custom-built for your business — not a template, not a chatbot builder. Real AI trained on your business.</p>
   </div>
   <div class="services-grid">
     <div class="service-card fade-in">
-      <div class="svc-icon"><i class="fas fa-globe"></i></div>
-      <div class="svc-name">Basic Website</div>
-      <div class="svc-desc">5 pages, mobile responsive, contact form, deployed and ready.</div>
-      <div class="svc-price">$299 <span>one time</span></div>
+      <div class="svc-icon"><i class="fas fa-comment-dots"></i></div>
+      <div class="svc-name">Starter AI Agent</div>
+      <div class="svc-desc">Website chatbot that answers questions 24/7, captures leads, and notifies you instantly. Perfect for small businesses.</div>
+      <div class="svc-price">$197 <span>one time</span></div>
     </div>
     <div class="service-card fade-in">
-      <div class="svc-icon"><i class="fas fa-building"></i></div>
-      <div class="svc-name">Business Website</div>
-      <div class="svc-desc">10 pages, custom design, backend, database included.</div>
-      <div class="svc-price">$599 <span>one time</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="svc-icon"><i class="fas fa-shopping-cart"></i></div>
-      <div class="svc-name">Ecommerce Store</div>
-      <div class="svc-desc">Full shop, payment gateway, admin panel, order management.</div>
-      <div class="svc-price">$999 <span>one time</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="svc-icon"><i class="fas fa-mobile-alt"></i></div>
-      <div class="svc-name">Android App</div>
-      <div class="svc-desc">React Native, Android + iOS, backend included.</div>
-      <div class="svc-price">$1,199 <span>one time</span></div>
-    </div>
-    <div class="service-card fade-in">
-      <div class="svc-icon"><i class="fas fa-robot"></i></div>
-      <div class="svc-name">AI Chatbot</div>
-      <div class="svc-desc">Smart bot, multilingual, order taking, WhatsApp integration.</div>
-      <div class="svc-price">$299 <span>+ $79/mo</span></div>
+      <div class="svc-icon"><i class="fas fa-brain"></i></div>
+      <div class="svc-name">Business AI Agent</div>
+      <div class="svc-desc">Full AI agent with lead capture, appointment booking, order taking, and Google Sheets integration for your business.</div>
+      <div class="svc-price">$397 <span>one time</span></div>
     </div>
     <div class="service-card fade-in">
       <div class="svc-icon"><i class="fas fa-layer-group"></i></div>
-      <div class="svc-name">Full Stack System</div>
-      <div class="svc-desc">Complete web app, backend, database, deployed on cloud.</div>
-      <div class="svc-price">$1,499 <span>one time</span></div>
+      <div class="svc-name">Advanced AI Agent</div>
+      <div class="svc-desc">Multi-channel agent running on your website AND WhatsApp. Custom persona, full integrations, payment collection.</div>
+      <div class="svc-price">$697 <span>one time</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="svc-name">WhatsApp AI Agent</div>
+      <div class="svc-desc">AI agent dedicated to your WhatsApp number. Replies automatically, takes orders, books appointments, captures leads.</div>
+      <div class="svc-price">$497 <span>one time</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon"><i class="fas fa-sliders-h"></i></div>
+      <div class="svc-name">Custom AI Agent</div>
+      <div class="svc-desc">Fully custom agent built to your exact requirements. Multi-language, custom integrations, complex workflows, anything.</div>
+      <div class="svc-price">$997+ <span>custom quote</span></div>
+    </div>
+    <div class="service-card fade-in">
+      <div class="svc-icon"><i class="fas fa-sync-alt"></i></div>
+      <div class="svc-name">Agent Maintenance</div>
+      <div class="svc-desc">Monthly updates, retraining with new information, performance monitoring, and priority support for your AI agent.</div>
+      <div class="svc-price">$49 <span>/month</span></div>
     </div>
   </div>
 </section>
@@ -294,29 +293,45 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
 <section class="how-it-works" id="how">
   <div class="section-head center fade-in">
     <div class="section-tag">Our Process</div>
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">From order to delivery, fully automated and always fast.</p>
+    <h2 class="section-title">How We Build Your Agent</h2>
+    <p class="section-sub">6 specialized AI agents work together in sequence to create your perfect AI agent from scratch.</p>
   </div>
   <div class="steps">
     <div class="step fade-in">
       <div class="step-num">01</div>
-      <div class="step-title">You Place Order</div>
-      <div class="step-desc">Tell us what you need. Our system captures every detail.</div>
+      <div class="step-title">Problem Analysis</div>
+      <div class="step-desc">We deeply analyze your business problem, customer pain points, and what your AI agent needs to solve.</div>
+      <div class="step-agent">🎯 Problem Analyzer Agent</div>
     </div>
     <div class="step fade-in">
       <div class="step-num">02</div>
-      <div class="step-title">Master Agent Analyzes</div>
-      <div class="step-desc">Our CEO agent breaks down your project into tasks.</div>
+      <div class="step-title">Solution Blueprint</div>
+      <div class="step-desc">We design the full conversation flow, decision trees, and integration map for your agent.</div>
+      <div class="step-agent">🏗️ Solution Architect Agent</div>
     </div>
     <div class="step fade-in">
       <div class="step-num">03</div>
-      <div class="step-title">Agents Build It</div>
-      <div class="step-desc">Specialist agents build frontend, backend, and database simultaneously.</div>
+      <div class="step-title">AI Personality & Prompts</div>
+      <div class="step-desc">We craft your agent's unique personality, tone, and system prompts — trained on your business knowledge.</div>
+      <div class="step-agent">✍️ Prompt Engineer Agent</div>
     </div>
     <div class="step fade-in">
       <div class="step-num">04</div>
-      <div class="step-title">You Get Files</div>
-      <div class="step-desc">Quality checked, zipped, and delivered. Ready to deploy.</div>
+      <div class="step-title">Code & Widget</div>
+      <div class="step-desc">We build the agent code, chat widget, and all backend logic needed to power your AI agent.</div>
+      <div class="step-agent">💻 Code Builder Agent</div>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">05</div>
+      <div class="step-title">Integrations</div>
+      <div class="step-desc">We connect your agent to WhatsApp, Google Sheets, calendars, email, and any other tool you use.</div>
+      <div class="step-agent">🔗 Integration Agent</div>
+    </div>
+    <div class="step fade-in">
+      <div class="step-num">06</div>
+      <div class="step-title">Delivery & Docs</div>
+      <div class="step-desc">You receive complete files, setup guide, and training documentation — everything to run your agent independently.</div>
+      <div class="step-agent">📖 Documentation Agent</div>
     </div>
   </div>
 </section>
@@ -325,57 +340,57 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
 <section class="agents" id="agents">
   <div class="section-head center fade-in">
     <div class="section-tag">Our Team</div>
-    <h2 class="section-title">Meet Your AI Agents</h2>
-    <p class="section-sub">7 specialized agents working around the clock on your projects.</p>
+    <h2 class="section-title">Meet Your AI Creation Team</h2>
+    <p class="section-sub">8 specialized AI agents working together to build your perfect business AI agent.</p>
   </div>
   <div class="agents-grid">
     <div class="agent-card fade-in">
       <span class="agent-emoji">🧠</span>
       <div class="agent-name">Master Agent</div>
-      <div class="agent-role">CEO: Routes tasks, controls everything</div>
+      <div class="agent-role">CEO: Routes all orders and controls the full creation pipeline</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">👔</span>
-      <div class="agent-name">Dev Boss Agent</div>
-      <div class="agent-role">Dev Manager: Distributes tasks to team</div>
+      <span class="agent-emoji">📦</span>
+      <div class="agent-name">Agent Creation Boss</div>
+      <div class="agent-role">Manager: Coordinates all 6 builder agents from start to delivery</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">🎨</span>
-      <div class="agent-name">Frontend Agent</div>
-      <div class="agent-role">Builds HTML, CSS, JavaScript UI</div>
+      <span class="agent-emoji">🎯</span>
+      <div class="agent-name">Problem Analyzer</div>
+      <div class="agent-role">Understands your business needs and defines what the agent must do</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">⚙️</span>
-      <div class="agent-name">Backend Agent</div>
-      <div class="agent-role">Builds Server, API, Authentication</div>
+      <span class="agent-emoji">🏗️</span>
+      <div class="agent-name">Solution Architect</div>
+      <div class="agent-role">Designs conversation flows, blueprints, and integration maps</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">🗄️</span>
-      <div class="agent-name">Database Agent</div>
-      <div class="agent-role">Builds SQL schemas and queries</div>
+      <span class="agent-emoji">✍️</span>
+      <div class="agent-name">Prompt Engineer</div>
+      <div class="agent-role">Crafts your agent's personality, tone, and AI training prompts</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">🤖</span>
-      <div class="agent-name">Chatbot Agent</div>
-      <div class="agent-role">Builds AI-powered chatbot systems</div>
+      <span class="agent-emoji">💻</span>
+      <div class="agent-name">Code Builder</div>
+      <div class="agent-role">Builds the full agent code, chat widget, and backend logic</div>
       <div class="online-dot">Online</div>
     </div>
     <div class="agent-card fade-in">
-      <span class="agent-emoji">🚀</span>
-      <div class="agent-name">Performance Checker</div>
-      <div class="agent-role">Reviews and scores all code quality</div>
+      <span class="agent-emoji">🔗</span>
+      <div class="agent-name">Integration Agent</div>
+      <div class="agent-role">Connects agent to WhatsApp, Google Sheets, calendars, and APIs</div>
       <div class="online-dot">Online</div>
     </div>
-    <div class="agent-card fade-in" style="background:rgba(0,255,136,0.04);border-color:rgba(0,255,136,0.15)">
-      <span class="agent-emoji">✨</span>
-      <div class="agent-name">More Coming</div>
-      <div class="agent-role">New agents added every month</div>
-      <div style="font-size:12px;color:var(--green);margin-top:10px">Soon</div>
+    <div class="agent-card fade-in">
+      <span class="agent-emoji">📖</span>
+      <div class="agent-name">Documentation Agent</div>
+      <div class="agent-role">Creates setup guides, training docs, and deployment instructions</div>
+      <div class="online-dot">Online</div>
     </div>
   </div>
 </section>
@@ -385,48 +400,51 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
   <div class="section-head center fade-in">
     <div class="section-tag">Pricing</div>
     <h2 class="section-title">Simple, Honest Pricing</h2>
-    <p class="section-sub">No hidden fees. No surprises. Pay once, own forever.</p>
+    <p class="section-sub">One-time payment. Own your AI agent forever. No hidden fees, no surprises.</p>
   </div>
   <div class="pricing-grid">
     <div class="price-card fade-in">
-      <div class="price-name">Basic Website</div>
-      <div class="price-desc">Perfect for small businesses and startups</div>
-      <div class="price-amount">$299 <span>one time</span></div>
+      <div class="price-name">Starter Agent</div>
+      <div class="price-desc">For businesses that want to capture more leads automatically</div>
+      <div class="price-amount">$197 <span>one time</span></div>
       <ul class="price-features">
-        <li>5 Page Website</li>
-        <li>Mobile Responsive</li>
-        <li>Contact Form</li>
-        <li>Deployed & Live</li>
-        <li>1 Month Free Support</li>
+        <li>Website Chat Widget</li>
+        <li>24/7 Customer Answers</li>
+        <li>Lead Capture (Name + Phone)</li>
+        <li>Owner Notification</li>
+        <li>Custom Personality & Name</li>
+        <li>Full Setup Guide</li>
       </ul>
       <a href="contact.html" class="price-btn">Get Started</a>
     </div>
     <div class="price-card featured fade-in">
       <div class="featured-badge">⚡ Most Popular</div>
-      <div class="price-name">Business Website</div>
-      <div class="price-desc">For growing businesses that need more</div>
-      <div class="price-amount">$599 <span>one time</span></div>
+      <div class="price-name">Business Agent</div>
+      <div class="price-desc">For businesses that need a full AI agent with all integrations</div>
+      <div class="price-amount">$397 <span>one time</span></div>
       <ul class="price-features">
-        <li>10 Page Website</li>
-        <li>Custom Design</li>
-        <li>Backend + Database</li>
-        <li>Admin Panel</li>
-        <li>1 Month Free Support</li>
-        <li>SEO Optimized</li>
+        <li>Everything in Starter</li>
+        <li>Appointment Booking</li>
+        <li>Order Taking</li>
+        <li>Google Sheets Integration</li>
+        <li>Email + WhatsApp Notify</li>
+        <li>Business Hours Logic</li>
+        <li>Priority Support</li>
       </ul>
       <a href="contact.html" class="price-btn">Get Started</a>
     </div>
     <div class="price-card fade-in">
-      <div class="price-name">Ecommerce Store</div>
-      <div class="price-desc">Full online store with everything included</div>
-      <div class="price-amount">$999 <span>one time</span></div>
+      <div class="price-name">Advanced Agent</div>
+      <div class="price-desc">For businesses that want AI on both website and WhatsApp</div>
+      <div class="price-amount">$697 <span>one time</span></div>
       <ul class="price-features">
-        <li>Full Product Catalog</li>
-        <li>Payment Gateway</li>
-        <li>Order Management</li>
-        <li>Admin Dashboard</li>
-        <li>1 Month Free Support</li>
-        <li>Customer Accounts</li>
+        <li>Everything in Business</li>
+        <li>WhatsApp Integration</li>
+        <li>Multi-Channel (Web + WA)</li>
+        <li>Payment Collection</li>
+        <li>Calendar Integration</li>
+        <li>Custom API Connections</li>
+        <li>30-Day Free Maintenance</li>
       </ul>
       <a href="contact.html" class="price-btn">Get Started</a>
     </div>
@@ -436,11 +454,11 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
 <!-- CTA -->
 <section class="cta-section">
   <div class="cta-box fade-in">
-    <h2>Ready to Build Something <span style="color:var(--green)">Amazing?</span></h2>
-    <p>Join clients who trust Zyenx AI to build their digital products. Fast delivery. Real results.</p>
+    <h2>Ready to Get Your <span style="color:var(--green)">AI Agent?</span></h2>
+    <p>Tell us about your business and we'll build a custom AI agent that works for you 24/7. Fast delivery. Real results.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-main"><i class="fas fa-rocket"></i> Start Your Project</a>
-      <a href="https://wa.me/10000000000" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+      <a href="contact.html" class="btn-main"><i class="fas fa-rocket"></i> Get Your AI Agent</a>
+      <a href="https://wa.me/923216830225" class="btn-outline"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
     </div>
   </div>
 </section>
@@ -453,16 +471,16 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
         <div class="logo-box">Z</div>
         <span class="logo-name">Zyenx <span>AI</span></span>
       </a>
-      <p>The world's first fully AI-powered development agency. Building the future, one project at a time.</p>
+      <p>We build custom AI agents that answer customers, capture leads, and run your business 24/7 — automatically.</p>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#services">Basic Website</a></li>
-        <li><a href="#services">Business Website</a></li>
-        <li><a href="#services">Ecommerce</a></li>
-        <li><a href="#services">Android App</a></li>
-        <li><a href="#services">AI Chatbot</a></li>
+        <li><a href="#services">Starter AI Agent</a></li>
+        <li><a href="#services">Business AI Agent</a></li>
+        <li><a href="#services">Advanced AI Agent</a></li>
+        <li><a href="#services">WhatsApp AI Agent</a></li>
+        <li><a href="#services">Custom AI Agent</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -477,30 +495,28 @@ footer{padding:60px 6% 30px;border-top:1px solid var(--border)}
     <div class="footer-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="mailto:hello@zyenxai.com">hello@zyenxai.com</a></li>
-        <li><a href="https://wa.me/10000000000">WhatsApp</a></li>
-        <li><a href="#">zyenxai.com</a></li>
+        <li><a href="mailto:zyenxai@gmail.com">zyenxai@gmail.com</a></li>
+        <li><a href="https://wa.me/923216830225">WhatsApp</a></li>
+        <li><a href="#">zyenxai.vercel.app</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2025 <span class="green">Zyenx AI</span>. All rights reserved. Built by AI, Powered by Innovation.</p>
+    <p>© 2025 <span class="green">Zyenx AI</span>. All rights reserved. AI Agents That Run Your Business.</p>
     <div class="socials">
       <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
       <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
       <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://wa.me/923216830225" class="social-btn"><i class="fab fa-whatsapp"></i></a>
     </div>
   </div>
 </footer>
 
 <script>
-// Nav scroll
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
 });
 
-// Mobile menu
 function toggleMenu(){
   const links=document.querySelector('.nav-links');
   const btn=document.querySelector('.nav-btn');
@@ -512,14 +528,12 @@ function toggleMenu(){
   }
 }
 
-// Fade in on scroll
 const obs=new IntersectionObserver((entries)=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
 },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
 </script>
 
-<!-- ✅ Chatbot script (separate, outside) -->
 <script defer src="https://zyenx-ai-production.up.railway.app/widget.js"></script>
 </body>
 </html>
