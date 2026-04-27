@@ -1,0 +1,48 @@
+HOW TO INSTALL YOUR AI CHATBOT
+================================
+Built for: Zyenx AI (Internal)
+By: Zyenx AI Agency
+zyenxai.com | hello@zyenxai.com
+
+========================================
+STEP 1 — Add your Anthropic API key
+========================================
+1. Copy .env.example to .env
+2. Add your key: ANTHROPIC_API_KEY=sk-ant-your-key-here
+3. Get key from: console.anthropic.com
+
+========================================
+STEP 2 — Deploy Chatbot Server (Railway)
+========================================
+1. Go to railway.app — free account
+2. New Project → Deploy
+3. Upload this chatbot folder
+4. Add environment variables from .env
+5. Deploy — get URL like: https://abc.railway.app
+
+========================================
+STEP 3 — Update widget.js
+========================================
+Open widget.js and find line:
+  apiUrl: 'https://your-chatbot-server.railway.app/chat'
+Replace with your Railway URL:
+  apiUrl: 'https://abc.railway.app/chat'
+
+========================================
+STEP 4 — Add to your website
+========================================
+Add this ONE line before </body> in every page:
+
+  <script src="https://abc.railway.app/widget.js"></script>
+
+Replace abc.railway.app with your Railway URL.
+
+========================================
+STEP 5 — Done!
+========================================
+The chat bubble appears bottom-right of your website.
+Visitors can ask questions 24/7.
+Bot knows all about your business automatically.
+
+NEED HELP? Contact Zyenx AI Agency
+Email: hello@zyenxai.com
